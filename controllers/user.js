@@ -78,9 +78,10 @@ const searchUser = TryCatch(async (req, res) => {
     name: { $regex: name, $options: "i" },
   });
 
-  const users = allUsersExceptMeAndFriends.map(({ _id, name, avatar }) => ({
+  const users = allUsersExceptMeAndFriends.map(({ _id, name, username, avatar }) => ({
     _id,
     name,
+    username,
     avatar: avatar.url,
   }));
 
